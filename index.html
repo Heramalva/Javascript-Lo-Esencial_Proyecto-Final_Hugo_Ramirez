@@ -6,12 +6,58 @@
 </head>
 <body>
 	<h1 style="text-align: center;">Estudiantes</h1>
-
-	<p id="estudiantes"></p><br>
-
-	<button>Mostrar Estudiantes</button>
-	<button>Mostrar Estudiantes</button>
-	<button>Mostrar Estudiantes</button>
-	<button>Mostrar Estudiantes</button>
+	<table>
+		<tr>
+			<td><button onclick="listado()">Mostrar Estudiantes</button></td>
+			<td><button onclick="promedio()">Nota Promedio</button></td>
+			<td><button onclick="mayor()">Estudiante con Nota Mayor</button></td>
+			<td><button onclick="menor()">Estudiante con Nota Menor</button></td>
+		</tr>
+		<tr>
+			<td><p id="texto1"></p></td>
+			<td><p id="texto2"></p></td>
+			<td><p id="texto3"></p></td>
+			<td><p id="texto4"></p></td>
+		</tr>
+	</table>
 </body>
+<script type="text/javascript">
+	var estudiantes=[
+					{"codigo":"001","nombre":"Hugo Ramirez","nota":100},
+					{"codigo":"002","nombre":"Juan Lopez","nota":50},
+					{"codigo":"003","nombre":"Nohemi Alonzo","nota":65},
+					{"codigo":"004","nombre":"Ivan Alvarado","nota":96},
+					{"codigo":"005","nombre":"Samuel Pacay","nota":70},
+					{"codigo":"006","nombre":"Paola Ramirez","nota":68},
+					{"codigo":"007","nombre":"Josue Lopez","nota":58},
+					{"codigo":"008","nombre":"Carlos Medina","nota":84},
+					{"codigo":"009","nombre":"Ruth Carranza","nota":53},
+					{"codigo":"010","nombre":"Luis Cortez","nota":71}];
+	function listado(){
+		var a="";
+		for(i=0;i<estudiantes.length;i++){
+			a+=estudiantes[i].codigo+" - "+estudiantes[i].nombre+" - "+estudiantes[i].nota+"<br>";
+		}
+		document.getElementById("texto1").innerHTML=a;
+	}
+	function promedio(){
+		var b=0;
+		for(i=0;i<estudiantes.length;i++){
+			b+=(estudiantes[i].nota)/10;
+		}
+		document.getElementById("texto2").innerHTML="El Promedio es de "+b.toFixed(2);
+	}
+	function mayor(){
+		for(i=0;i<estudiantes.length;i++){
+			var	c=Math.max(estudiantes[i].nota);	
+		}
+		document.getElementById("texto3").innerHTML="Nota Mayor "+c;
+	}
+	function menor(){
+		var	d=Math.min(estudiantes[0].nota,estudiantes[9].nota);
+		
+		document.getElementById("texto4").innerHTML="Nota Menor "+d;
+	}
+	
+</script>
 </html>
