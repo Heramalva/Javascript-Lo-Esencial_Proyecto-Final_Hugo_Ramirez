@@ -23,11 +23,11 @@
 </body>
 <script type="text/javascript">
 	var estudiantes=[
-					{"codigo":"001","nombre":"Hugo Ramirez","nota":100},
+					{"codigo":"001","nombre":"Hugo Ramirez","nota":90},
 					{"codigo":"002","nombre":"Juan Lopez","nota":50},
 					{"codigo":"003","nombre":"Nohemi Alonzo","nota":65},
 					{"codigo":"004","nombre":"Ivan Alvarado","nota":96},
-					{"codigo":"005","nombre":"Samuel Pacay","nota":70},
+					{"codigo":"005","nombre":"Samuel Pacay","nota":100},
 					{"codigo":"006","nombre":"Paola Ramirez","nota":68},
 					{"codigo":"007","nombre":"Josue Lopez","nota":58},
 					{"codigo":"008","nombre":"Carlos Medina","nota":84},
@@ -45,19 +45,34 @@
 		for(i=0;i<estudiantes.length;i++){
 			b+=(estudiantes[i].nota)/10;
 		}
-		document.getElementById("texto2").innerHTML="El Promedio es de "+b.toFixed(2);
+		document.getElementById("texto2").innerHTML="El Promedio es de <br>"+b.toFixed(2);
 	}
 	function mayor(){
-		for(i=0;i<estudiantes.length;i++){
-			var	c=Math.max(estudiantes[i].nota);	
+		var mayor=estudiantes[0].nota;
+		var contador=1;
+		var c="";
+		while (contador<10) {
+			if (estudiantes[contador].nota>mayor) {
+				mayor=estudiantes[contador].nota;
+				c=estudiantes[contador].nombre;
+			}
+			contador++;
 		}
-		document.getElementById("texto3").innerHTML="Nota Mayor "+c;
+		document.getElementById("texto3").innerHTML="El Mejor Estudiante es: <br>"+c;
 	}
 	function menor(){
-		var	d=Math.min(estudiantes[0].nota,estudiantes[9].nota);
-		
-		document.getElementById("texto4").innerHTML="Nota Menor "+d;
+		var menor=estudiantes[0].nota;
+		var contador=1;
+		var d="";
+		while (contador<10) {
+			if (estudiantes[contador].nota<menor) {
+				menor=estudiantes[contador].nota;
+				d=estudiantes[contador].nombre;
+			}
+			contador++;
+		}
+		document.getElementById("texto4").innerHTML="El Peor Estudiante es: <br>"+d;
 	}
-	
+
 </script>
 </html>
